@@ -21,7 +21,6 @@ def search(request):
             if mileage:
                 listings = listings.filter(mileage__lte=mileage)
 
-            # Calculate estimated market price 
             estimated_price = calculate_estimated_price(listings)
             sample_listings = listings[:100]
 
@@ -36,9 +35,6 @@ def search(request):
     return render(request, 'search.html', {'form': form})
 
 def calculate_estimated_price(listings):
-    # Add your own logic here to calculate the estimated market price
-    # This can be done by aggregating and analyzing the data in the listings
-    # For this example, we will simply calculate the average price of the listings.
     total_price = listings.aggregate(total=Sum('listing_price'))['total']
     if listings.count() > 0:
         return round(total_price / listings.count(), -2)
