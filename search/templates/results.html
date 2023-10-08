@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .not-available {
+            font-style: italic;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p>Estimated Market Price: ${{ estimated_price }}</p>
+    <h2>Listings:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">Vehicle</th>
+                <th style="width: 20%;">Price</th>
+                <th style="width: 20%;">Mileage</th>
+                <th style="width: 35%;">Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for listing in sample_listings %}
+            <tr>
+                <td>{{ listing.year }} {{ listing.make }} {{ listing.model }}</td>
+                <td>{% if listing.listing_price != 'nan' %}${{ listing.listing_price }}{% else %}<span class="not-available">-</span>{% endif %}</td>
+                <td>{% if listing.listing_mileage != 'nan' %}${{ listing.listing_mileage }}{% else %}<span class="not-available">-</span>{% endif %}</td>
+                <td>{{ listing.dealer_city }}, {{ listing.dealer_state }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
