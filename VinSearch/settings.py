@@ -85,6 +85,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'VinSearch',
+#         'USER': 'surajb',
+#         'PASSWORD': 'Ec3##sad2TR',
+#         'HOST': '104.238.234.38',   # Or the hostname of your MySQL server
+#         'PORT': '3306',       # MySQL default port is 3306
+#     }
+# }
+
 
 
 # Password validation

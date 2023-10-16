@@ -91,7 +91,7 @@
                 </td>
                 <td>
                     {% if listing.listing_mileage != 'nan' %}
-                        ${{ listing.listing_mileage }}
+                        {{ listing.listing_mileage }}
                     {% else %}
                         <span class="not-available">-</span>
                     {% endif %}
